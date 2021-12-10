@@ -3,7 +3,7 @@
 - [HTTP Middleware](#http-middleware)
   - [Giới thiệu](#gii-thiu)
   - [Tạo middleware](#to-middleware)
-    - [*Before* / *After* Middleware](#before---after-middleware)
+    - [_Before_ / _After_ Middleware](#before---after-middleware)
   - [Đăng kí middleware](#ng-ki-middleware)
     - [Global Middleware](#global-middleware)
     - [Thiết lập middleware cho route](#thit-lp-middleware-cho-route)
@@ -13,7 +13,7 @@
 
 ## Giới thiệu
 
-HTTP middleware cung cấp một giải pháp tiện ích cho việc lock các HTTP request vào ứng dụng. Ví dụ, Laravel có chứa một middleware xác thực người dùng đăng nhập vào hệ thống. Nếu user chưa đăng nhập, middleware sẽ chuyển hướng user tới màn hình login. Còn nếu user đã đăng nhập rồi, thì middleware sẽ cho phép request được thực hiện tiếp tiến trình xử lý.
+HTTP middleware cung cấp một giải pháp tiện ích cho việc kiểm tra và lọc các HTTP request vào ứng dụng. Ví dụ, Laravel có chứa một middleware xác thực người dùng đăng nhập vào hệ thống. Nếu user chưa đăng nhập, middleware sẽ chuyển hướng user tới màn hình login. Còn nếu user đã đăng nhập rồi, thì middleware sẽ cho phép request được thực hiện tiếp tiến trình xử lý.
 
 Tất nhiên là có thể viết thêm middleware để thực hiện nhiều tác vụ nữa ngoài việc kiểm tra đăng nhập vào hệ thống. Middleware CORS chịu trách nhiệm cho việc thêm các header hợp lý vào trong tất cả các response gửi ra ngoài. Middleware log có thể thực hiện ghi log cho tất cả các request tới chương trình.
 
@@ -61,7 +61,7 @@ Như bạn thấy, nếu `age` nhỏ hơn hoặc bằng `200`, middleware sẽ t
 
 Tốt nhất là hãy hình dung middleware là một chuỗi các "layers" trên HTTP request cần phải đi qua trước khi đi vào trong chương trình. Mỗi layer sẽ thực hiện kiểm tra request và thậm chí có thể huỷ từ chối request hoàn toàn.
 
-### *Before* / *After* Middleware
+### _Before_ / _After_ Middleware
 
 Việc một middleware chạy trước hay sau một request phụ thuộc vào chính nó. Ví dụ, middleware dưới đây sẽ thực hiện vài tác vụ **trước khi** request được chương trình xử lý:
 
@@ -196,7 +196,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 ```
 
->Nên nhớ là, nhóm middleware `web` được tự động áp dụng vào trong file `routes.php` qua `RouteServiceProvider`.
+> Nên nhớ là, nhóm middleware `web` được tự động áp dụng vào trong file `routes.php` qua `RouteServiceProvider`.
 
 ## Tham soos cho Middleware
 
